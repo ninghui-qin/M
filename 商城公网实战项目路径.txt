@@ -1,0 +1,21 @@
+新实战项目：
+windows本地hosts文件位置如下，路径C:\Windows\System32\drivers\etc\hosts
+苹果电脑hosts文件位置：/etc/hosts
+追加如下内容
+47.104.140.177 www.mtxshop.com
+
+图片验证码：1512
+短信验证码：908908
+数据库连接：121.42.15.146  root/Testfan#123
+
+安装数据库连接工具navicat，如果你已经有其他连接mysql的工具那么就不用安装
+
+http://www.mtxshop.com:7000/swagger-ui.html 基础服务接口
+http://www.mtxshop.com:7002/swagger-ui.html 买家服务接口
+http://www.mtxshop.com:7003/swagger-ui.html 卖家服务接口
+http://www.mtxshop.com:7004/swagger-ui.html 后台管理接口
+http://www.mtxshop.com:3000/ 前台,自行注册
+http://www.mtxshop.com:3003/ 管理员管理端,admin/111111
+http://www.mtxshop.com:3002/ 卖家管理端，shamoseller/123456
+
+
