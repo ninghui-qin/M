@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "f6463912-89d0-4d5c-a434-4b8c20d67eb0",
+		"name": "多种类型接口0220",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get接口",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/getSku?id=1",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"getSku"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "表单类型post接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"响应状态码是200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"body体信息正确\", function () {\r",
+							"    // pm.response.to.have.body(\"{\\\"code\\\":\\\"0\\\",\\\"message\\\":\\\"success\\\",\\\"data\\\":null}\");\r",
+							"    pm.response.to.have.body('{\"code\":\"0\",\"message\":\"success\",\"data\":null}');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"code是0\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.code).to.eql(\"0\");\r",
+							"    // pm.expect(jsonData.message).to.eql(\"success\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"messgae是success\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"success\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userName",
+							"value": "shamo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/login",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数为json的post接口",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"test\",\"password\":\"1234\",\"gender\":1,\"phoneNum\":\"110\",\"email\":\"beihe@163.com\",\"address\":\"Beijing\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/register",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数k=json的post接口",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "param",
+							"value": "{\"skuId\":123,\"num\":10}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/buy",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put类型的接口",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"brand\":\"Huawei\",\"color\":\"yellow\",\"memorySize\":\"64G\",\"cpuCore\":\"8核\",\"price\":\"8848\",\"desc\":\"全新上市\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/phone",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"phone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete类型的接口",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"brand\":\"Huawei\",\"color\":\"yellow\",\"memorySize\":\"64G\",\"cpuCore\":\"8核\",\"price\":\"8848\",\"desc\":\"全新上市\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/phone",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"phone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文件上传表单",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "File",
+							"type": "file",
+							"src": "/C:/Users/lixio/Desktop/appium.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/file/api/upload",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"file",
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文件上传ajax",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "File",
+							"type": "file",
+							"src": "/C:/Users/lixio/Desktop/appium.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/file/api/upload2",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"file",
+						"api",
+						"upload2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "文件下载",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/file/api/download?id=4",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"file",
+						"api",
+						"download"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "返回json数组的接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data[1].userName).to.eql('码同学学员1');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/userList?genderType=0",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"userList"
+					],
+					"query": [
+						{
+							"key": "genderType",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "需要签名验证的接口",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//获取当前时间戳，并存储在变量time中\r",
+							"var time=new Date().getTime();\r",
+							"// 将time设置为环境变量\r",
+							"pm.environment.set(\"timestamp\", time);\r",
+							"\r",
+							"//完成phoneNum、optCode、timestamp三个字段相加\r",
+							"var phoneNum=pm.environment.get(\"phoneNum\");\r",
+							"var optCode=pm.environment.get(\"optCode\");\r",
+							"var signStr=phoneNum+optCode+time;\r",
+							"//针对相加以后的signStr做md5加密\r",
+							"var signMd5=CryptoJS.MD5(signStr).toString();\r",
+							"//将加密以后的signMd5放入环境变量中，以便接口参数中引用\r",
+							"pm.environment.set(\"signMd5\", signMd5);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"code是0\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.code).to.eql(\"0\");\r",
+							"    // pm.expect(jsonData.message).to.eql(\"success\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"messgae是success\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"success\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phoneNum\":\"{{phoneNum}}\",\r\n    \"optCode\":\"{{optCode}}\",\r\n    \"timestamp\":\"{{timestamp}}\",\r\n    \"sign\":\"{{signMd5}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/com/userInfo",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"com",
+						"userInfo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "a1de0849-0701-43ee-be7d-3b9a8a352c96",
+		"name": "token关联0220",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token登录接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"code是0\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.code).to.eql(\"0\");\r",
+							"    // pm.expect(jsonData.message).to.eql(\"success\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"messgae是success\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"success\");\r",
+							"});\r",
+							"\r",
+							"//提取响应中的data字段，将其存储在环境变量token中\r",
+							"var jsonData = pm.response.json();//获取响应信息\r",
+							"var token = jsonData.data;//得到data字段的值\r",
+							"pm.environment.set(\"token\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userName",
+							"value": "shamo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/bank/api/login2",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"bank",
+						"api",
+						"login2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token查询余额接口",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "testfan-token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userName",
+							"value": "shamo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/pinter/bank/api/query2?userName=shamo",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"pinter",
+						"bank",
+						"api",
+						"query2"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "shamo"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
