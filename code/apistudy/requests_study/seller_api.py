@@ -4,6 +4,8 @@
 # @Time: 2022/3/5  4:06 下午
 
 import requests
+from db import *
+from mtxshop_api import *
 
 session = requests.session()
 token = ''
@@ -16,7 +18,7 @@ def seller_login():
         'Authorization': ''
     }
     data={
-        'username':'16620797802',
+        'username':'shamoseller',
         'password':'e10adc3949ba59abbe56e057f20f883e',
         'captcha':'1512',
         'uuid':'74f35140-9578-11ec-af73'
@@ -97,10 +99,10 @@ def add_goods():
   "sn": "33333333",
   "template_id": 0,
   "weight": 0
-}
+    }
     resp = session.request(url=url,method='post', headers=headers, json=data)
     resp_json=resp.json()
-    print(resp_json)
+    # print(resp_json)
     return resp
 
 def change_goods(goods_id=6992):
@@ -173,14 +175,61 @@ def change_goods(goods_id=6992):
         }
     ],
     "has_changed":0
-}
+    }
     resp = session.request(url=url, method='put', headers=headers, json=data)
     resp_json = resp.json()
-    print(resp_json)
+    # print(resp_json)
     return resp
+
+def delivery(order_sn,ship_no='12345699999999',logi_id=13,logi_name='balala'):
+    '''发货'''
+    url = f'http://www.mtxshop.com:7003/seller/trade/orders/{order_sn}/delivery'
+    headers = {
+        'Authorization': token,
+        'Content-Type': 'application/json'
+    }
+    data={
+        'ship_no':ship_no,
+        'logi_id':logi_id,
+        'logi_name':logi_name
+    }
+    resp = session.request(url=url, method='post', headers=headers, params=data)
+    print(resp.status_code)
+    # print(order_sn)
+    # if ship_no=='':
+    #     print(resp)
+    if logi_id=='':
+        print(resp.json())
+    elif logi_name=='':
+        print(resp)
+    return resp
+
+def pay():
+    '''确认收款'''
+    result = DB().select(
+        "SELECT trade_sn,order_price from mtxshop_trade.es_order where seller_id=20 and order_status like 'ROG' order by create_time desc limit 10;")
+    order_sn=result[0]['trade_sn']
+    pay_price=result[0]['order_price']
+
+    url = f'http://www.mtxshop.com:7003/seller/trade/orders/{order_sn}/pay'
+    headers = {
+        'Authorization': token,
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'pay_price': pay_price
+    }
+    resp = session.request(url=url, method='post', headers=headers, params=data)
+    # print(resp.status_code)
+    return resp
+
 
 
 if __name__ == '__main__':
     seller_login()
-    add_goods()
-    change_goods()
+    # add_goods()
+    # change_goods()
+    order=DB().select("SELECT trade_sn from mtxshop_trade.es_order where seller_id=20 and order_status like 'CONFIRM' order by create_time desc limit 10;")
+    order_sn=order[0]['trade_sn']
+    delivery(order_sn,ship_no='',logi_id='',logi_name='balala')
+    # pay()

@@ -5,8 +5,9 @@
 # @Copyright：北京码同学
 import javaobj
 import pytest
-
 from requests_study.mtxshop_api import *
+from db_study.db_util import *
+
 @pytest.mark.usefixtures('ceshilei')
 class TestBuyNowDataDriver:
 
@@ -73,7 +74,7 @@ class TestCreateTrade:
     @pytest.mark.parametrize('client',client_data)
     @pytest.mark.parametrize('way',way_data)
     @pytest.mark.parametrize('expect_status',expect_status_code)
-    def test_create_trade(self,client,way,expect_status):
+    def test_create_trade(self,client,way,expect_status,db_util):
         # 对于创建交易这个来说，在调用之前需要先调用立即购买或者添加购物车接口
         # 因为创建交易会根据参数的不同去redis缓存中取订单相关的信息，然后创建
         # 当way参数是BUY_NOW会去缓存中读立即购买的数据
@@ -89,3 +90,24 @@ class TestCreateTrade:
         print(resp.text)
         assert status_code == expect_status
 
+        # 判断数据库数据是否正确
+        # 数据库里是实际值，那么期望数据是谁
+        # 可以是接口发起时请求得数据，也可以是接口响应的数据
+        data = db_util.select(
+            'SELECT * FROM mtxshop_trade.es_order WHERE member_id=59 ORDER BY order_id DESC LIMIT 1 ;')
+        db_res=data[0]
+        print(db_res)
+        db_trade_sn=db_res['trade_sn']
+        print(db_trade_sn)
+        items_json=db_res['items_json']
+        print(items_json)
+        items_json=json.loads(items_json)
+        print(json.dumps(items_json))
+        db_skuid=jsonpath.jsonpath(items_json,'$..sku_id')[0]
+        db_num=jsonpath.jsonpath(items_json,'$..num')[0]
+
+        resp_json=resp.json()
+        resp_trade_sn=resp_json['trade_sn']
+        pytest.assume(db_trade_sn==resp_trade_sn)
+        pytest.assume(db_skuid==5173)
+        pytest.assume(db_num==1)

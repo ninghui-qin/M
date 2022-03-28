@@ -11,7 +11,7 @@ import pytest
 
 from redis_study.redis_util import RedisUtil
 from requests_study.mtxshop_api import buyer_login
-
+from db_study.db_util import *
 
 def pytest_collection_modifyitems(
         session: "Session", config: "Config", items: List["Item"]
@@ -74,3 +74,19 @@ def redis_util():
     redis_util = RedisUtil(host='121.42.15.146',pwd='testfan')
     yield redis_util
 
+@pytest.fixture(scope='session',autouse=True)
+def get_tokken():
+    print('fixture里调用了登录')
+    res=buyer_login()
+    uid=res.json()['uid']
+    yield uid
+
+@pytest.fixture(scope='session',autouse=True)
+def db_util():
+    db_util=DB_Util(
+        host='121.42.15.146',
+        user='root',
+        password='Testfan#123'
+    )
+    yield db_util
+    db_util.close()

@@ -4,6 +4,7 @@
 # @Time: 2022-02-20 17:14
 # @Copyright：北京码同学
 import requests
+import jsonpath
 
 session = requests.session()
 token = ''
@@ -29,7 +30,8 @@ def buyer_login():
     # print(resp_info)
     print(resp_json)
     global token
-    token = resp_json['access_token']
+    # token = resp_json['access_token']
+    token=jsonpath.jsonpath(resp_json,'$.access_token')[0]
     return resp
 def add_cart(sku_id=5173,num=1):
     url = 'http://www.mtxshop.com:7002/trade/carts'
@@ -127,9 +129,9 @@ def create_trade(client='PC',way='BUY_NOW'):
     # status_code = resp.status_code  # 获取响应状态码
     # # print(status_code)
     # # resp_info = resp.text  # 获取响应信息，返回结果是字符串格式
-    # resp_json = resp.json()  # 获取响应信息，返回结果是个字典，注意这种方法只能针对响应信息是json格式
+    resp_json = resp.json()  # 获取响应信息，返回结果是个字典，注意这种方法只能针对响应信息是json格式
     # # print(resp_info)
-    # print(resp_json)
+    print(resp_json)
     return resp
 def delete_cart():
     # 设置收货地址接口
@@ -150,4 +152,8 @@ def delete_cart():
     return resp
 if __name__ == '__main__':
     buyer_login()
-    add_cart()
+    # add_cart()
+    buy_now()
+    set_address()
+    # create_trade()
+    # add_cart()
