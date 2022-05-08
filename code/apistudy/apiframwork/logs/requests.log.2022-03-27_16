@@ -1,5 +1,0 @@
-2022-03-27 16:23:30,315 DEBUG [apiautotest] [logger.py (<module>:57] - 调试
-2022-03-27 16:23:30,316 INFO [apiautotest] [logger.py (<module>:58] - 信息
-2022-03-27 16:23:30,316 WARNING [apiautotest] [logger.py (<module>:59] - 警告
-2022-03-27 16:23:30,316 ERROR [apiautotest] [logger.py (<module>:61] - 这个变量是yaoyao
-2022-03-27 16:23:30,316 CRITICAL [apiautotest] [logger.py (<module>:62] - 致命的

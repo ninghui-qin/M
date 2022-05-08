@@ -1,0 +1,259 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "testcases.buyer",
+    "children" : [ {
+      "name" : "test_001_cart",
+      "children" : [ {
+        "name" : "TestAddCart",
+        "children" : [ {
+          "name" : "test_buy_now[产品已下架-5875-1-expect_status_code0-\"004\"-产品已下架]",
+          "uid" : "204b1bb951f8bed3",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "failed",
+          "time" : {
+            "start" : 1649173303560,
+            "stop" : 1649173303649,
+            "duration" : 89
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'产品已下架'", "'\"004\"'", "'产品已下架'", "500", "1", "5875" ]
+        }, {
+          "name" : "test_buy_now[产品id不存在-6636655-1-expect_status_code1-\"451\"-商品已失效，请刷新购物车]",
+          "uid" : "c67e9ed0ed535b8c",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173303836,
+            "stop" : 1649173303912,
+            "duration" : 76
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'产品id不存在'", "'\"451\"'", "'商品已失效，请刷新购物车'", "500", "1", "6636655" ]
+        }, {
+          "name" : "test_buy_now[num超过库存-5173-99999999-expect_status_code2-\"451\"-商品库存已不足，不能购买。]",
+          "uid" : "a5838ad9d66fde6b",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173303918,
+            "stop" : 1649173304088,
+            "duration" : 170
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num超过库存'", "'\"451\"'", "'商品库存已不足，不能购买。'", "500", "99999999", "5173" ]
+        }, {
+          "name" : "test_buy_now[num为0-5173-0-expect_status_code3-\"004\"-加入购物车数量必须大于0]",
+          "uid" : "80c0d620790c0c6e",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173304096,
+            "stop" : 1649173304239,
+            "duration" : 143
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num为0'", "'\"004\"'", "'加入购物车数量必须大于0'", "400", "0", "5173" ]
+        }, {
+          "name" : "test_buy_now[num为负数-5173--1-expect_status_code4-\"004\"-加入购物车数量必须大于0]",
+          "uid" : "61ecffbe49f1b8b3",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173304248,
+            "stop" : 1649173304394,
+            "duration" : 146
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num为负数'", "'\"004\"'", "'加入购物车数量必须大于0'", "400", "-1", "5173" ]
+        }, {
+          "name" : "test_buy_now[产品id为空--1-expect_status_code5-\"004\"-产品id不能为空]",
+          "uid" : "f8666b6bd1cae7bd",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173304403,
+            "stop" : 1649173304552,
+            "duration" : 149
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'产品id为空'", "'\"004\"'", "'产品id不能为空'", "400", "1", "''" ]
+        }, {
+          "name" : "test_buy_now[num为空-5173--expect_status_code6-\"004\"-购买数量不能为空]",
+          "uid" : "ac988e48eb808942",
+          "parentUid" : "7a5768bae35e2628fd13b2186c91c0dd",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173304561,
+            "stop" : 1649173304688,
+            "duration" : 127
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num为空'", "'\"004\"'", "'购买数量不能为空'", "400", "''", "5173" ]
+        } ],
+        "uid" : "7a5768bae35e2628fd13b2186c91c0dd"
+      }, {
+        "name" : "TestBuyNow",
+        "children" : [ {
+          "name" : "test_buy_now[产品已下架-5875-1-expect_status_code0-\"004\"-产品已下架]",
+          "uid" : "ebbc870d49b4e8ca",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "failed",
+          "time" : {
+            "start" : 1649173304693,
+            "stop" : 1649173304854,
+            "duration" : 161
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'产品已下架'", "'\"004\"'", "'产品已下架'", "500", "1", "5875" ]
+        }, {
+          "name" : "test_buy_now[产品id不存在-6636655-1-expect_status_code1-\"004\"-不合法]",
+          "uid" : "7d3dd1d9ec9e80ac",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173304868,
+            "stop" : 1649173304963,
+            "duration" : 95
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'产品id不存在'", "'\"004\"'", "'不合法'", "500", "1", "6636655" ]
+        }, {
+          "name" : "test_buy_now[num超过库存-5173-99999999-expect_status_code2-\"451\"-商品库存已不足，不能购买。]",
+          "uid" : "aff26b9f982c67d7",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173304971,
+            "stop" : 1649173305134,
+            "duration" : 163
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num超过库存'", "'\"451\"'", "'商品库存已不足，不能购买。'", "500", "99999999", "5173" ]
+        }, {
+          "name" : "test_buy_now[num为0-5173-0-expect_status_code3-\"004\"-购买数量必须大于0]",
+          "uid" : "ab03ad36836d4327",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173305142,
+            "stop" : 1649173305290,
+            "duration" : 148
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num为0'", "'\"004\"'", "'购买数量必须大于0'", "400", "0", "5173" ]
+        }, {
+          "name" : "test_buy_now[num为负数-5173--1-expect_status_code4-\"004\"-购买数量必须大于0]",
+          "uid" : "8b41c06945ade052",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173305298,
+            "stop" : 1649173305459,
+            "duration" : 161
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num为负数'", "'\"004\"'", "'购买数量必须大于0'", "400", "-1", "5173" ]
+        }, {
+          "name" : "test_buy_now[产品id为空--1-expect_status_code5-\"004\"-产品id不能为空]",
+          "uid" : "45984e72e846e75b",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173305467,
+            "stop" : 1649173305613,
+            "duration" : 146
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'产品id为空'", "'\"004\"'", "'产品id不能为空'", "400", "1", "''" ]
+        }, {
+          "name" : "test_buy_now[num为空-5173--expect_status_code6-\"004\"-购买数量不能为空]",
+          "uid" : "ab1452907bbe05",
+          "parentUid" : "ff1a12eaeff12d5c0c61c74010c777cb",
+          "status" : "passed",
+          "time" : {
+            "start" : 1649173305621,
+            "stop" : 1649173305769,
+            "duration" : 148
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "newPassed" : false,
+          "newBroken" : false,
+          "retriesCount" : 0,
+          "retriesStatusChange" : false,
+          "parameters" : [ "'num为空'", "'\"004\"'", "'购买数量不能为空'", "400", "''", "5173" ]
+        } ],
+        "uid" : "ff1a12eaeff12d5c0c61c74010c777cb"
+      } ],
+      "uid" : "490a4129e8af40ec609058c16f00127b"
+    } ],
+    "uid" : "aa742241b84408bab0b5a624148279a8"
+  } ]
+}

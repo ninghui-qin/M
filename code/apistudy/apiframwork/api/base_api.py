@@ -55,3 +55,22 @@ class BaseSellerApi:
         self.headers={
             'Authorization': BaseBuyerApi.seller_token
         }
+
+#
+# class RequestsClient(object):
+#     pass
+
+
+class BaseManagerApi(RequestClient):
+    manager_token = ''
+    def __init__(self):
+        super().__init__()
+        self.host = 'http://www.mtxshop.com:7004'
+        self.headers = {
+            'Authorization': BaseManagerApi.manager_token
+        }
+
+class BaseBasicApi(RequestClient):
+    def __init__(self):
+        super().__init__()
+        self.host = 'http://www.mtxshop.com:7000'

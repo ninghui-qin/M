@@ -1,0 +1,47 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert 200 == 500\n  +200\n  -500",
+      "children" : [ {
+        "name" : "test_buy_now[产品已下架-5875-1-expect_status_code0-\"004\"-产品已下架]",
+        "uid" : "204b1bb951f8bed3",
+        "parentUid" : "e8a51b95478b865ade7e2ac3fc07ed47",
+        "status" : "failed",
+        "time" : {
+          "start" : 1649173303560,
+          "stop" : 1649173303649,
+          "duration" : 89
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "'产品已下架'", "'\"004\"'", "'产品已下架'", "500", "1", "5875" ]
+      }, {
+        "name" : "test_buy_now[产品已下架-5875-1-expect_status_code0-\"004\"-产品已下架]",
+        "uid" : "ebbc870d49b4e8ca",
+        "parentUid" : "e8a51b95478b865ade7e2ac3fc07ed47",
+        "status" : "failed",
+        "time" : {
+          "start" : 1649173304693,
+          "stop" : 1649173304854,
+          "duration" : 161
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "'产品已下架'", "'\"004\"'", "'产品已下架'", "500", "1", "5875" ]
+      } ],
+      "uid" : "e8a51b95478b865ade7e2ac3fc07ed47"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}
